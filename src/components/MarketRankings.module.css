@@ -168,3 +168,90 @@
 .viewAll:hover {
     text-decoration: underline;
 }
+
+/* ── Tablet ≤ 768px ── */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .thead th {
+        padding: 12px 14px;
+        font-size: 10px;
+    }
+
+    .rankCell {
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    .coinCell {
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .dataCell {
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    .coinIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .coinName {
+        font-size: 13px;
+    }
+
+    .sparkSvg {
+        width: 72px;
+        height: 24px;
+    }
+
+    .footer {
+        padding: 12px 16px;
+    }
+}
+
+/* ── Small phone ≤ 480px ── */
+@media (max-width: 480px) {
+    .header {
+        padding: 12px;
+    }
+
+    .filterGroup {
+        gap: 4px;
+    }
+
+    .filterBtn {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .thead th {
+        padding: 10px 10px;
+        font-size: 9px;
+    }
+
+    .rankCell {
+        padding: 10px;
+    }
+
+    .coinCell {
+        padding: 10px;
+    }
+
+    .dataCell {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .tableWrap {
+        /* ensure scrollability on narrow screens */
+        -webkit-overflow-scrolling: touch;
+    }
+}

@@ -1,23 +1,49 @@
 import styles from './LiveTicker.module.css';
 
-const ITEMS = [
-    { label: 'GAS:', value: '18 Gwei', dim: true },
-    null,
-    { label: 'BTC Dominance:', value: '52.4%' },
-    null,
-    { label: 'Market Cap:', value: '$2.41T', extra: '+1.2%', extraClass: 'text-success' },
-    null,
-    { label: 'ETH:', value: '$3,845', dim: true },
-    null,
-    { label: 'SOL:', value: '$172' },
-    null,
-    { label: 'Fear/Greed:', value: '74' },
-];
+export default function LiveTicker({ coins = [], globalMetrics }) {
+    // Build ticker items from live data
+    const tickerItems = [];
 
-function TickerItems() {
+    // Global market data
+    if (globalMetrics) {
+        tickerItems.push({ label: 'Market Cap:', value: globalMetrics.totalMarketCap, extra: globalMetrics.totalMarketCapChange, positive: globalMetrics.totalMarketCapChangePositive });
+        tickerItems.push(null); // dot separator
+        tickerItems.push({ label: 'BTC Dom:', value: globalMetrics.btcDominance, dim: true });
+        tickerItems.push(null);
+    }
+
+    // Top coins
+    const topCoins = coins.slice(0, 8);
+    topCoins.forEach((coin, i) => {
+        tickerItems.push({
+            label: coin.symbol + ':',
+            value: coin.price,
+            extra: coin.change,
+            positive: coin.positive,
+            dim: i % 2 === 1,
+        });
+        tickerItems.push(null); // dot separator
+    });
+
+    // Fallback if no data loaded yet
+    if (tickerItems.length === 0) {
+        tickerItems.push({ label: 'Loading', value: 'market data...', dim: true });
+    }
+
+    return (
+        <div className={`glass-nav ${styles.bar}`}>
+            <div className={`ticker-track ${styles.track}`}>
+                <TickerItems items={tickerItems} />
+                <TickerItems items={tickerItems} />
+            </div>
+        </div>
+    );
+}
+
+function TickerItems({ items }) {
     return (
         <>
-            {ITEMS.map((item, i) =>
+            {items.map((item, i) =>
                 item === null
                     ? <span key={i} className={styles.dot} />
                     : (
@@ -26,22 +52,13 @@ function TickerItems() {
                                 {item.label} {item.value}
                             </span>
                             {item.extra && (
-                                <span className={item.extraClass} style={{ marginLeft: 4 }}>{item.extra}</span>
+                                <span className={item.positive ? 'text-success' : 'text-danger'} style={{ marginLeft: 4 }}>
+                                    {item.extra}
+                                </span>
                             )}
                         </span>
                     )
             )}
         </>
-    );
-}
-
-export default function LiveTicker() {
-    return (
-        <div className={`glass-nav ${styles.bar}`}>
-            <div className={`ticker-track ${styles.track}`}>
-                <TickerItems />
-                <TickerItems />
-            </div>
-        </div>
     );
 }

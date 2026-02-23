@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .title {
@@ -19,13 +19,13 @@
 .fields {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .fieldGroup {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 }
 
 .label {
@@ -36,6 +36,42 @@
     color: #64748b;
 }
 
+/* Coin dropdown */
+.coinPickWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: border-color 0.2s;
+}
+
+.coinPickWrap:focus-within {
+    border-color: var(--primary);
+}
+
+.coinSelect {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-display);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.coinSelect option {
+    background: #0d1117;
+    color: #e2e8f0;
+}
+
+/* Amount input */
 .inputWrap {
     position: relative;
 }
@@ -45,8 +81,8 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    padding: 12px 40px 12px 12px;
-    font-size: 1.125rem;
+    padding: 12px 52px 12px 14px;
+    font-size: 1.1rem;
     color: #fff;
     font-family: var(--font-mono);
     outline: none;
@@ -58,26 +94,106 @@
     box-shadow: 0 0 0 2px rgba(13, 127, 242, 0.2);
 }
 
-.currency {
+.currencyBadge {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     color: #64748b;
     font-family: var(--font-mono);
+    pointer-events: none;
 }
 
-.swapRow {
+/* USD / INR toggle */
+.fiatToggle {
     display: flex;
-    justify-content: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.output {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 1.125rem;
+.fiatBtn {
+    flex: 1;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #64748b;
+    font-family: var(--font-display);
+    transition: all 0.2s ease;
+}
+
+.fiatBtn:hover {
+    color: #e2e8f0;
+}
+
+.fiatActive {
+    background: var(--primary) !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(13, 127, 242, 0.3);
+}
+
+/* Result box */
+.resultBox {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: rgba(13, 127, 242, 0.07);
+    border: 1px solid rgba(13, 127, 242, 0.2);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.resultLabel {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.resultValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Rate hint */
+.rateInfo {
+    font-size: 10px;
+    color: #475569;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .card {
+        padding: 16px;
+    }
+
+    .input {
+        font-size: 1rem;
+    }
+
+    .resultValue {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 14px;
+    }
+
+    .resultValue {
+        font-size: 1.1rem;
+    }
 }

@@ -74,3 +74,39 @@
     color: #94a3b8;
     margin-top: 4px;
 }
+
+/* ── Mobile ≤ 768px ── */
+@media (max-width: 768px) {
+    .card {
+        padding: 16px;
+    }
+
+    .ring {
+        width: 110px;
+        height: 110px;
+    }
+
+    .gaugeValue {
+        font-size: 1.6rem;
+    }
+
+    .sentimentText {
+        font-size: 1rem;
+    }
+}
+
+/* ── Small phone ≤ 480px ── */
+@media (max-width: 480px) {
+    .card {
+        padding: 14px;
+    }
+
+    .ring {
+        width: 96px;
+        height: 96px;
+    }
+
+    .gaugeValue {
+        font-size: 1.35rem;
+    }
+}

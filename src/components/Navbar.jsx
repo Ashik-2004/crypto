@@ -42,6 +42,9 @@ export default function Navbar() {
             <div className={styles.avatar}>
               <img src={USER_AVATAR} alt="User profile" />
             </div>
+            <button className={styles.menuBtn}>
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>menu</span>
+            </button>
           </div>
         </div>
       </div>

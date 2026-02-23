@@ -169,3 +169,72 @@
     height: 100%;
     object-fit: cover;
 }
+
+/* Hamburger menu button (hidden on desktop) */
+.menuBtn {
+    display: none;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #e2e8f0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Tablet ≤ 1024px ── */
+@media (max-width: 1024px) {
+    .searchWrap {
+        max-width: 320px;
+    }
+    .navLinks {
+        gap: 16px;
+    }
+}
+
+/* ── Mobile ≤ 768px ── */
+@media (max-width: 768px) {
+    .nav {
+        padding: 10px 16px;
+    }
+    .inner {
+        gap: 12px;
+    }
+    .searchWrap {
+        display: none;
+    }
+    .navLinks {
+        display: none;
+    }
+    .menuBtn {
+        display: flex;
+    }
+    .rightSection {
+        gap: 12px;
+    }
+    .actions {
+        gap: 8px;
+    }
+    .avatar {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+/* ── Small phone ≤ 480px ── */
+@media (max-width: 480px) {
+    .nav {
+        padding: 8px 12px;
+    }
+    .logoText {
+        font-size: 1.05rem;
+    }
+    .iconBtn {
+        padding: 6px;
+    }
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
+}
