@@ -1,0 +1,76 @@
+.card {
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.gaugeWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.ring {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    flex-shrink: 0;
+}
+
+.gaugeSvg {
+    width: 100%;
+    height: 100%;
+}
+
+.gaugeInner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gaugeValue {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.gaugeLabel {
+    font-size: 10px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+}
+
+.sentiment {
+    text-align: center;
+}
+
+.sentimentText {
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: block;
+}
+
+.sentimentDesc {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 4px;
+}

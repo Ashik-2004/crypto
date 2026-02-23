@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #0d7ff2;
+  --bg-dark: #050810;
+  --success: #00FF41;
+  --danger: #FF3131;
+  --font-display: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #e2e8f0;
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background: rgba(5, 8, 16, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover glow */
+.hover-glow {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 24px rgba(13, 127, 242, 0.15);
+  border-color: rgba(13, 127, 242, 0.3);
+}
+
+/* Mono font utility */
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Success / danger */
+.text-success { color: var(--success); }
+.text-danger  { color: var(--danger);  }
+.text-primary { color: var(--primary); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(13,127,242,0.5); }
+
+/* Ticker scroll animation */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: ticker-scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* Pulse animation for live dot */
+@keyframes pulse-r {
+  0%, 100% { r: 4; }
+  50%       { r: 6; }
+}
